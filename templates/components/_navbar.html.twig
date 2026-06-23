@@ -1,0 +1,23 @@
+<header class="navbar">
+	<div class="container navbar__content">
+		<a href="{{ path('app_home') }}" class="navbar__logo" aria-label="Retour à l'accueil Green Goodies">
+			<img 
+                src="{{ asset('images/Logo.svg') }}" 
+                alt="Green Goodies"
+                class="navbar__logo-img"
+            >		
+        </a>
+
+		<nav class="navbar__links">
+			{% if app.user %}
+				<a href="{{ path('app_home') }}">Nos produits</a>
+				<a href="#">Mon panier</a>
+				<a href="#">Mon compte</a>
+				<a href="#">Déconnexion</a>
+			{% else %}
+				<a href="#">Connexion</a>
+				<a href="#">Inscription</a>
+			{% endif %}
+		</nav>
+	</div>
+</header>

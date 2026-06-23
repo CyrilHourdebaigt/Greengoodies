@@ -16,21 +16,21 @@ class ProductFixtures extends Fixture
                 'shortDescription' => 'Un savon doux et parfumé, fabriqué à partir d’ingrédients naturels.',
                 'fullDescription' => 'Ce savon naturel à la lavande nettoie la peau en douceur tout en laissant un parfum agréable et apaisant. Il est idéal pour une utilisation quotidienne et convient à tous les types de peau.',
                 'price' => 4.90,
-                'picture' => 'savon-lavande.jpg',
+                'picture' => 'Produit_1.webp',
             ],
             [
                 'name' => 'Shampoing solide nourrissant',
                 'shortDescription' => 'Un shampoing solide écologique pour prendre soin de vos cheveux.',
                 'fullDescription' => 'Ce shampoing solide nourrit les cheveux tout en limitant les emballages plastiques. Sa formule douce respecte le cuir chevelu et laisse les cheveux propres, légers et brillants.',
                 'price' => 7.50,
-                'picture' => 'shampoing-solide.jpg',
+                'picture' => 'Produit_2.webp',
             ],
             [
                 'name' => 'Gourde inox réutilisable',
                 'shortDescription' => 'Une gourde durable pour remplacer les bouteilles jetables.',
                 'fullDescription' => 'Cette gourde en inox est idéale pour transporter vos boissons au quotidien. Réutilisable, solide et facile à nettoyer, elle accompagne parfaitement une démarche zéro déchet.',
                 'price' => 18.90,
-                'picture' => 'gourde-inox.jpg',
+                'picture' => 'Produit_3.webp',
             ],
         ];
 

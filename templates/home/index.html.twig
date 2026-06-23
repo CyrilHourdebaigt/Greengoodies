@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil - GreenGoodies
+{% endblock %}
+
+{% block body %}
+	<section class="hero">
+		<div class="hero__content">
+			<div class="hero__text">
+				<h1>Bienvenue</h1>
+				<p>Découvrez notre univers de produits durables et éthiques pour une consommation responsable.</br></br>
+                 Retrouvez des articles d’hygiène & beauté, des accessoires & boissons et du prêt à porter.
+	            </p>
+            </div>
+
+            <div class="hero__image">
+	            <img src="{{ asset('images/hero_image.webp') }}" alt="Intérieur naturel GreenGoodies">
+            </div>
+        </div>
+    </section>
+    
+    <section id="products" class="products-section">
+        <div class="section-title">
+	        <h2>Nos produits</h2>
+        </div>
+
+        <div class="product-grid">
+            {% for product in products %}
+                <article class="product-card">
+                    <div class="product-card__image">
+                        <img src="{{ asset('images/products/' ~ product.picture) }}" alt="{{ product.name }}" loading="lazy">
+                    </div>
+
+                    <div class="product-card__content">
+                        <h3>{{ product.name }}</h3>
+
+                        <p class="product-card__description">
+                        {{ product.shortDescription }}
+                        </p>
+
+                        <p class="product-card__price">
+                            {{ product.price|number_format(2, ',', ' ') }}
+                            €
+                        </p>
+                        <a href="#" class="button button--small">Voir le produit</a>
+                    </div>
+                </article>
+            {% else %}
+                <p>Aucun produit disponible pour le moment.</p>
+            {% endfor %}
+        </div>
+    </section>
+    <section class="values-section">
+        <div class="values-grid">
+            <div class="values-block values-block--text values-block--conviction">
+                <div class="values-block__content">
+                    <p class="section-kicker">Notre conviction</p>
+                    <p>
+                        Chez GreenGoodies, nous croyons en un monde où le commerce
+                        peut être synonyme de bien-être pour la planète et ses habitants.
+                        Notre mission est de vous proposer une sélection rigoureuse de produits
+                        qui allient qualité, durabilité et éthique.
+                    </p>
+                </div>
+            </div>
+
+            <div class="values-block values-block--image values-block--branch">
+                <img 
+                    src="{{ asset('images/Mask-group_1.webp') }}" 
+                    alt="Branche végétale décorative"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="values-block values-block--image values-block--bags">
+                <img 
+                    src="{{ asset('images/Mask-group.webp') }}" 
+                    alt="Sacs recyclés verts"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="values-block values-block--text values-block--values">
+                <div class="values-block__content">
+                    <p class="section-kicker">Nos valeurs</p>
+                    <p>
+                        Durabilité : Nous sélectionnons soigneusement des produits qui respectent
+                        l’environnement et favorisent la durabilité.
+                    </p>
+                    <p>
+                        Éthique : Nous nous engageons à travailler avec des partenaires et des fournisseurs
+                        qui partagent nos valeurs éthiques.
+                    </p>
+                    <p>
+                        Écologie : Nous encourageons les pratiques respectueuses de l’écosystème
+                        et privilégions les matériaux écologiques.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
