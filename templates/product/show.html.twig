@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ product.name }} - GreenGoodies{% endblock %}
+
+{% block body %}
+    <section class="product-detail">
+        <div class="product-detail__container">
+            <div class="product-detail__image">
+                <img 
+                    src="{{ asset('images/products/' ~ product.picture) }}" 
+                    alt="{{ product.name }}"
+                >
+            </div>
+
+            <div class="product-detail__content">
+                <h1>{{ product.name }}</h1>
+
+                <p class="product-detail__price">
+                    {{ product.price|number_format(2, ',', ' ') }} €
+                </p>
+
+                <p class="product-detail__label">Description</p>
+
+                <p class="product-detail__description">
+                    {{ product.fullDescription }}
+                </p>
+
+                {% if app.user %}
+                    <form class="product-detail__form" method="post" action="#">
+                        <label for="quantity">Quantité</label>
+
+                        <input 
+                            type="number" 
+                            id="quantity" 
+                            name="quantity" 
+                            min="0" 
+                            value="1"
+                        >
+
+                        <button type="submit" class="button product-detail__button">
+                            Ajouter au panier
+                        </button>
+                    </form>
+                {% else %}
+                    <a href="#" class="button product-detail__button">
+                        Se connecter pour ajouter au panier
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

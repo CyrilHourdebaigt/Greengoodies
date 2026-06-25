@@ -10,11 +10,25 @@
     box-sizing: border-box;
 }
 
+html,
 body {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     margin: 0;
     font-family: Arial, sans-serif;
     color: var(--color-dark);
     background-color: var(--color-background);
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 a {
@@ -142,9 +156,16 @@ a {
 }
 
 .product-card__image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
+    aspect-ratio: 480 / 474;
+    overflow: hidden;
+}
+
+.product-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .product-card__content {
@@ -253,6 +274,106 @@ a {
     max-width: 500px;
     margin: 0;
     padding: 0 40px 40px 0;
+}
+
+/* Page produit */
+
+.product-detail {
+    background-color: #fffdf7;
+    flex: 1;
+}
+
+.product-detail__container {
+    width: min(1350px, 90%);
+    display: grid;
+    grid-template-columns: 1.30fr 0.70fr;
+    gap: 96px;
+    align-items: center;
+}
+
+.product-detail__image {
+    width: 95%;
+    height: clamp(360px, 32vw, 520px);
+    background-color: #f3f3f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.product-detail__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* Si certaines images sont trop zoomées, tu peux passer à contain uniquement ici */
+/*
+.product-detail__image img {
+    object-fit: contain;
+    background-color: #f3f3f0;
+}
+*/
+
+.product-detail__content {
+    max-width: 460px;
+}
+
+.product-detail__content h1 {
+    margin: 0 0 18px;
+    font-size: 1.8rem;
+    line-height: 1.2;
+    font-weight: 600;
+}
+
+.product-detail__price {
+    margin: 0 0 40px;
+    font-size: 1.15rem;
+    font-weight: 400;
+}
+
+.product-detail__label {
+    margin: 0 0 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.product-detail__description {
+    margin: 0 0 56px;
+    max-width: 430px;
+    font-size: 0.95rem;
+    line-height: 1.65;
+}
+
+.product-detail__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.product-detail__form label {
+    font-size: 0.9rem;
+}
+
+.product-detail__form input {
+    width: 120px;
+    padding: 10px 12px;
+    border: 1px solid #d8d2c5;
+    background-color: #fffdf7;
+}
+
+.product-detail__button {
+    width: 100%;
+    max-width: 360px;
+    margin-top: 0;
+    border-radius: 0;
+    background-color: #4a4a4a;
+    color: #ffffff;
+    padding: 18px 24px;
+    font-size: 0.9rem;
+    text-align: center;
 }
 
 @media (max-width: 800px) {
