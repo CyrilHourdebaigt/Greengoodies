@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon panier - GreenGoodies{% endblock %}
+
+{% block body %}
+    <section class="cart-page">
+        <div class="cart-container">
+            <h1>Mon panier</h1>
+
+            {% if cartItems is empty %}
+                <p class="cart-empty">Votre panier est vide.</p>
+            {% else %}
+                {% set total = 0 %}
+
+                <form method="post" action="{{ path('app_cart_clear') }}">
+                    <button type="submit" class="cart-clear-link">
+                        × Vider le panier
+                    </button>
+                </form>
+
+                <div class="cart-card">
+                    {% for cartItem in cartItems %}
+                        {% set lineTotal = cartItem.product.price * cartItem.quantity %}
+                        {% set total = total + lineTotal %}
+
+                        <article class="cart-item">
+                            <div class="cart-item__image">
+                                <img
+                                    src="{{ asset('images/products/' ~ cartItem.product.picture) }}"
+                                    alt="{{ cartItem.product.name }}"
+                                >
+                            </div>
+
+                            <div class="cart-item__content">
+                                <h2>{{ cartItem.product.name }}</h2>
+
+                                <p class="cart-item__quantity">
+                                    Quantité : {{ cartItem.quantity }}
+                                </p>
+
+                                <p class="cart-item__price">
+                                    {{ lineTotal|number_format(2, ',', ' ') }}€
+                                </p>
+                            </div>
+                        </article>
+                    {% endfor %}
+                </div>
+
+                <div class="cart-total-card">
+                    <div class="cart-total-card__content">
+                        <p>
+                            Total panier :
+                            <strong>{{ total|number_format(2, ',', ' ') }}€</strong>
+                        </p>
+                        <span>Frais de livraison : Offert</span>
+                    </div>
+                </div>
+
+                <form method="post" action="{{ path('app_cart_validate') }}">
+                    <button type="submit" class="cart-validate-button">
+                        Valider la commande
+                    </button>
+                </form>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}

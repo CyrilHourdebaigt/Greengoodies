@@ -490,6 +490,135 @@ a {
     margin-top: 3px;
 }
 
+/* Page connexion */
+
+.cart-page {
+    min-height: calc(100vh - 90px);
+    background-color: #f3eee9;
+    padding: 72px 0 96px;
+}
+
+.cart-container {
+    width: min(520px, 90%);
+    margin: 0 auto;
+}
+
+.cart-container h1 {
+    margin: 0 0 24px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.cart-empty {
+    text-align: center;
+}
+
+.cart-clear-link {
+    display: inline-block;
+    margin-bottom: 16px;
+    padding: 0;
+    border: none;
+    background: none;
+    font-family: inherit;
+    font-size: 0.85rem;
+    color: #6f6f6f;
+    cursor: pointer;
+}
+
+.cart-clear-link:hover {
+    text-decoration: underline;
+}
+
+.cart-card {
+    background-color: #fffdf7;
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 48px;
+    align-items: center;
+    padding: 36px;
+}
+
+.cart-item__image {
+    width: 140px;
+    height: 120px;
+    overflow: hidden;
+    background-color: #f3f3f0;
+}
+
+.cart-item__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.cart-item__content h2 {
+    margin: 0 0 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.cart-item__quantity {
+    margin: 0 0 14px;
+    font-size: 0.85rem;
+    color: #777777;
+}
+
+.cart-item__price {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.cart-total-card {
+    margin-top: 6px;
+    background-color: #fffdf7;
+    padding: 22px 36px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cart-total-card__content {
+    text-align: left;
+}
+
+.cart-total-card__content p {
+    margin: 0 0 4px;
+    font-size: 0.95rem;
+}
+
+.cart-total-card__content strong {
+    margin-left: 8px;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.cart-total-card__content span {
+    font-size: 0.8rem;
+    color: #777777;
+}
+
+.cart-validate-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: min(420px, 90%);
+    height: 64px;
+    margin: 28px auto 0;
+    background-color: #555555;
+    color: #ffffff;
+    font-size: 0.9rem;
+    border: none;
+}
+
+.cart-validate-button:hover {
+    background-color: #3f3f3f;
+}
+
 
 @media (max-width: 800px) {
     .hero__content,

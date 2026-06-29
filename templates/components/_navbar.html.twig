@@ -11,7 +11,7 @@
 		<nav class="navbar__links">
 			{% if app.user %}
 				<a href="{{ path('app_home') }}">Nos produits</a>
-				<a href="#">Mon panier</a>
+				<a href="{{ path('app_cart') }}">Mon panier</a>
 				<a href="#">Mon compte</a>
 				<a href="{{ path('app_logout') }}">Déconnexion</a>
 			{% else %}
