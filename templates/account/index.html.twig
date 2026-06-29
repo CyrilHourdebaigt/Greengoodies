@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon compte - GreenGoodies{% endblock %}
+
+{% block body %}
+    <section class="account-page">
+        <div class="account-container">
+            <h1>Mon compte</h1>
+
+            <div class="account-card">
+                <h2>Mes commandes</h2>
+
+                {% if orders is empty %}
+                    <p class="account-empty">Vous n’avez pas encore passé de commande.</p>
+                {% else %}
+                    <table class="orders-table">
+                        <thead>
+                            <tr>
+                                <th>N°</th>
+                                <th>Date</th>
+                                <th>Prix</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% for order in orders %}
+                                <tr>
+                                    <td>{{ '%02d'|format(order.id) }}</td>
+                                    <td>{{ order.validateAt|date('d/m/Y') }}</td>
+                                    <td>{{ order.totalPrice|number_format(2, ',', ' ') }}€</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% endif %}
+            </div>
+
+            <div class="account-card">
+                <h2>Mon accès API</h2>
+
+                {% if app.user.isApiAccessEnabled %}
+                    <button class="account-button" type="button">
+                        Désactiver mon accès API
+                    </button>
+                {% else %}
+                    <button class="account-button" type="button">
+                        Activer mon accès API
+                    </button>
+                {% endif %}
+            </div>
+
+            <div class="account-card">
+                <button class="account-button" type="button">
+                    Supprimer mon compte
+                </button>
+            </div>
+        </div>
+    </section>
+{% endblock %}

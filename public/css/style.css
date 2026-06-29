@@ -619,6 +619,101 @@ a {
     background-color: #3f3f3f;
 }
 
+/* Page connexion */
+
+.account-page {
+    min-height: calc(100vh - 90px);
+    background-color: #f3eee9;
+    padding: 64px 0 96px;
+}
+
+.account-container {
+    width: min(520px, 90%);
+    margin: 0 auto;
+}
+
+.account-container h1 {
+    margin: 0 0 40px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.account-card {
+    background-color: #fffdf7;
+    padding: 48px;
+    margin-bottom: 16px;
+}
+
+.account-card h2 {
+    margin: 0 0 32px;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.account-empty {
+    margin: 0;
+    color: #777777;
+    font-size: 0.9rem;
+}
+
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.orders-table th {
+    padding: 0 0 16px;
+    text-align: left;
+    color: #777777;
+    font-size: 0.85rem;
+    font-weight: 400;
+}
+
+.orders-table td {
+    padding: 18px 0;
+    border-top: 1px solid #dddddd;
+    font-size: 0.9rem;
+}
+
+.orders-table td:last-child,
+.orders-table th:last-child {
+    text-align: right;
+}
+
+.orders-table th:nth-child(1),
+.orders-table td:nth-child(1) {
+    width: 25%;
+    text-align: left;
+}
+
+.orders-table th:nth-child(2),
+.orders-table td:nth-child(2) {
+    width: 50%;
+    text-align: center;
+}
+
+.orders-table th:nth-child(3),
+.orders-table td:nth-child(3) {
+    width: 25%;
+    text-align: right;
+}
+
+.account-button {
+    width: 100%;
+    height: 56px;
+    border: none;
+    background-color: #555555;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.account-button:hover {
+    background-color: #3f3f3f;
+}
+
 
 @media (max-width: 800px) {
     .hero__content,
