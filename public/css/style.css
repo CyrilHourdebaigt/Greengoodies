@@ -477,6 +477,19 @@ a {
     color: #2f6f4e;
 }
 
+.auth-form__checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 28px;
+    font-size: 0.9rem;
+    color: #6f6f6f;
+}
+
+.auth-form__checkbox input {
+    margin-top: 3px;
+}
+
 
 @media (max-width: 800px) {
     .hero__content,

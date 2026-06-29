@@ -42,7 +42,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $lastName = null;
 
     #[ORM\Column]
-    private ?bool $isApiAccessEnabled = null;
+    private ?bool $isApiAccessEnabled = false;
 
     /**
      * @var Collection<int, CartItem>
