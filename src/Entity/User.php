@@ -20,6 +20,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?int $id = null;
 
+    // L'email sert d'identifiant unique pour la connexion de l'utilisateur
     #[ORM\Column(length: 180)]
     private ?string $email = null;
 
@@ -41,6 +42,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $lastName = null;
 
+    // Indique si l'utilisateur a activé son accès à l'API, désactivé par défaut
     #[ORM\Column]
     private ?bool $isApiAccessEnabled = false;
 

@@ -13,14 +13,17 @@ class CartItem
     #[ORM\Column]
     private ?int $id = null;
 
+    // Utilisateur propriétaire de la ligne
     #[ORM\ManyToOne(inversedBy: 'cartItems')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
+    // Produit concerné
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
     private ?Product $product = null;
 
+    // Quantité choisie
     #[ORM\Column]
     private ?int $quantity = null;
 

@@ -15,10 +15,12 @@ final class AccountController extends AbstractController
     {
         $user = $this->getUser();
 
+        // Si aucun utilisateur n'est connecté, on le redirige vers la page de connexion
         if (!$user) {
             return $this->redirectToRoute('app_login');
         }
 
+        // On récupère les commandes de l'utilisateur connecté et on tri par ordre croissant
         $orders = $customerOrderRepository->findBy(
             ['user' => $user],
             ['validateAt' => 'ASC']
@@ -34,10 +36,12 @@ final class AccountController extends AbstractController
     {
         $user = $this->getUser();
 
+        // on s'assure que l'utilisateur est connecté
         if (!$user) {
             return $this->redirectToRoute('app_login');
         }
 
+         // On inverse la valeur actuelle de l'accès API : true devient false, et false devient true
         $user->setIsApiAccessEnabled(!$user->isApiAccessEnabled());
 
         $entityManager->flush();

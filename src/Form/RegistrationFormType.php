@@ -20,6 +20,7 @@ class RegistrationFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        // Formulaire d'inscription lié à l'entité User
         $builder
             ->add('firstName', TextType::class, [
                 'label' => 'Prénom',

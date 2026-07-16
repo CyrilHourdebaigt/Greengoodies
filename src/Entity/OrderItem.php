@@ -13,19 +13,24 @@ class OrderItem
     #[ORM\Column]
     private ?int $id = null;
 
+    // Commande à laquelle appartient cette ligne
     #[ORM\ManyToOne(inversedBy: 'orderItems')]
     #[ORM\JoinColumn(nullable: false)]
     private ?CustomerOrder $customerOrder = null;
 
+    // Nom du produit au moment de la commande
     #[ORM\Column(length: 255)]
     private ?string $productName = null;
 
+    // Prix unitaire au moment de la commande
     #[ORM\Column]
     private ?float $productPrice = null;
 
+    // Quantité commandée
     #[ORM\Column]
     private ?int $quantity = null;
 
+    // Total de la ligne : prix unitaire x quantité
     #[ORM\Column]
     private ?float $totalPrice = null;
 

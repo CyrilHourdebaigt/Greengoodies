@@ -15,16 +15,20 @@ class CustomerOrder
     #[ORM\Column]
     private ?int $id = null;
 
+    // Utilisateur ayant passé la commande
     #[ORM\ManyToOne(inversedBy: 'customerOrders')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
+    // Numéro unique de commande
     #[ORM\Column(length: 255)]
     private ?string $orderNumber = null;
 
+    // Date de validation de la commande
     #[ORM\Column]
     private ?\DateTimeImmutable $validateAt = null;
 
+    // Montant total de la commande
     #[ORM\Column]
     private ?float $totalPrice = null;
 

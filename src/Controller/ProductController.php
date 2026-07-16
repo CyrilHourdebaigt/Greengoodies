@@ -15,6 +15,8 @@ final class ProductController extends AbstractController
     {
         $cartItem = null;
 
+        // Si un utilisateur est connecté, on vérifie si ce produit existe déjà dans son panier
+        // Cela permet d'afficher la quantité actuelle sur la page détail produit
         if ($this->getUser()) {
             $cartItem = $cartItemRepository->findOneBy([
                 'user' => $this->getUser(),

@@ -18,10 +18,12 @@ security:
             security: false
 
         api_login:
+            # La route de connexion API reste accessible sans token
             pattern: ^/api/login$
             security: false
 
         api:
+            # Toutes les autres routes /api sont protégées par JWT
             pattern: ^/api
             stateless: true
             provider: app_user_provider
@@ -47,7 +49,10 @@ security:
 
     # Note: Only the *first* matching rule is applied
     access_control:
+        # /api/login est public pour permettre la génération du token
         - { path: ^/api/login$, roles: PUBLIC_ACCESS }
+
+        # Les autres routes API nécessitent un utilisateur authentifié
         - { path: ^/api, roles: ROLE_USER }
 
 when@test:
