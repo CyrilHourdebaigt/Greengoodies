@@ -38,15 +38,17 @@
             <div class="account-card">
                 <h2>Mon accès API</h2>
 
-                {% if app.user.isApiAccessEnabled %}
-                    <button class="account-button" type="button">
-                        Désactiver mon accès API
-                    </button>
-                {% else %}
-                    <button class="account-button" type="button">
-                        Activer mon accès API
-                    </button>
-                {% endif %}
+                <form method="post" action="{{ path('app_account_toggle_api_access') }}">
+                    {% if app.user.isApiAccessEnabled %}
+                        <button class="account-button" type="submit">
+                            Désactiver mon accès API
+                        </button>
+                    {% else %}
+                        <button class="account-button" type="submit">
+                            Activer mon accès API
+                        </button>
+                    {% endif %}
+                </form>
             </div>
 
             <div class="account-card">

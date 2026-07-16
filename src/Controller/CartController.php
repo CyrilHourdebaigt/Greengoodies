@@ -44,15 +44,24 @@ final class CartController extends AbstractController
             return $this->redirectToRoute('app_login');
         }
 
-        $quantity = max(1, (int) $request->request->get('quantity', 1));
+        $quantity = max(0, (int) $request->request->get('quantity', 1));
 
         $cartItem = $cartItemRepository->findOneBy([
             'user' => $user,
             'product' => $product,
         ]);
 
+        if ($quantity === 0) {
+            if ($cartItem) {
+                $entityManager->remove($cartItem);
+                $entityManager->flush();
+            }
+
+            return $this->redirectToRoute('app_cart');
+        }
+
         if ($cartItem) {
-            $cartItem->setQuantity($cartItem->getQuantity() + $quantity);
+            $cartItem->setQuantity($quantity);
         } else {
             $cartItem = new CartItem();
             $cartItem->setUser($user);

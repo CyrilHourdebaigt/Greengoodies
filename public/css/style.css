@@ -6,6 +6,10 @@
     --color-muted: #777777;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     box-sizing: border-box;
 }
