@@ -52,9 +52,17 @@
             </div>
 
             <div class="account-card">
-                <button class="account-button" type="button">
-                    Supprimer mon compte
-                </button>
+                <form 
+                    method="post" 
+                    action="{{ path('app_account_delete') }}"
+                    onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est définitive.');"
+                >
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete_account') }}">
+
+                    <button class="account-button" type="submit">
+                        Supprimer mon compte
+                    </button>
+                </form>
             </div>
         </div>
     </section>

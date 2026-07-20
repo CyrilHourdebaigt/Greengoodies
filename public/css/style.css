@@ -311,14 +311,6 @@ a {
     display: block;
 }
 
-/* Si certaines images sont trop zoomées, tu peux passer à contain uniquement ici */
-/*
-.product-detail__image img {
-    object-fit: contain;
-    background-color: #f3f3f0;
-}
-*/
-
 .product-detail__content {
     max-width: 460px;
 }
@@ -494,7 +486,7 @@ a {
     margin-top: 3px;
 }
 
-/* Page connexion */
+/* Page panier */
 
 .cart-page {
     min-height: calc(100vh - 90px);
@@ -515,6 +507,32 @@ a {
 }
 
 .cart-empty {
+    text-align: center;
+}
+
+.cart-confirmation {
+    width: 100%;
+    max-width: 520px;
+    margin: 24px auto 32px;
+    padding: 20px 24px;
+    background-color: #f8fbf7;
+    border: 1px solid #d8e8d4;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.cart-confirmation strong {
+    display: block;
+    margin-bottom: 8px;
+    color: #3f6f4f;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.cart-confirmation p {
+    margin: 0;
+    color: #333;
+    font-size: 0.95rem;
     text-align: center;
 }
 
@@ -623,7 +641,7 @@ a {
     background-color: #3f3f3f;
 }
 
-/* Page connexion */
+/* Page compte */
 
 .account-page {
     min-height: calc(100vh - 90px);

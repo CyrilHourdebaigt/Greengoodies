@@ -173,6 +173,8 @@ final class CartController extends AbstractController
         $entityManager->persist($order);
         $entityManager->flush();
 
+        $this->addFlash('success', 'Merci pour votre commande ! Elle a bien été enregistrée.');
+
         return $this->redirectToRoute('app_cart');
     }
 }
