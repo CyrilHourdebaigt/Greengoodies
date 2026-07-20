@@ -17,7 +17,7 @@
 
                 {{ form_errors(registrationForm) }}
 
-                {{ form_start(registrationForm) }}
+                {{ form_start(registrationForm, {'attr': {'novalidate': 'novalidate'}}) }}
                     <div class="auth-form__group">
                         {{ form_label(registrationForm.lastName) }}
                         {{ form_widget(registrationForm.lastName) }}
