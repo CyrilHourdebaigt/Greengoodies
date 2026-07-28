@@ -6,11 +6,12 @@ use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Serializer\SerializerInterface;
 
 final class ApiProductController extends AbstractController
 {
     #[Route('/api/products', name: 'api_products', methods: ['GET'])]
-    public function index(ProductRepository $productRepository): JsonResponse
+    public function index(ProductRepository $productRepository, SerializerInterface $serializer): JsonResponse
     {
         // On récupère donc l'utilisateur authentifié grâce au token envoyé dans la requête
         $user = $this->getUser();
@@ -25,21 +26,11 @@ final class ApiProductController extends AbstractController
         // On récupère tous les produits présents en base
         $products = $productRepository->findAll();
 
-        // On prépare un tableau pour contrôler les données renvoyées dans la réponse JSON.
-        $data = [];
+        // On transforme les produits en JSON avec le groupe de sérialisation product:read
+        $jsonProducts = $serializer->serialize($products, 'json', [
+            'groups' => ['product:read'],
+        ]);
 
-        foreach ($products as $product) {
-            $data[] = [
-                'id' => $product->getId(),
-                'name' => $product->getName(),
-                'shortDescription' => $product->getShortDescription(),
-                'fullDescription' => $product->getFullDescription(),
-                'price' => $product->getPrice(),
-                'picture' => $product->getPicture(),
-            ];
-        }
-
-        // La route renvoie un tableau de produits
-        return new JsonResponse($data, JsonResponse::HTTP_OK);
+        return new JsonResponse($jsonProducts, JsonResponse::HTTP_OK, [], true);
     }
 }
