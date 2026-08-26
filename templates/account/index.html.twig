@@ -25,7 +25,7 @@
                         <tbody>
                             {% for order in orders %}
                                 <tr>
-                                    <td>{{ '%02d'|format(order.id) }}</td>
+                                    <td>{{ '%02d'|format(loop.index) }}</td>
                                     <td>{{ order.validateAt|date('d/m/Y') }}</td>
                                     <td>{{ order.totalPrice|number_format(2, ',', ' ') }}€</td>
                                 </tr>
